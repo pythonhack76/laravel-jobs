@@ -15,6 +15,7 @@ use App\Models\Listing;
 |
 */
 
+//All listings
 Route::get('/', function () {
     return view('listings', [
         'heading' => 'Latest Listings',
@@ -23,3 +24,10 @@ Route::get('/', function () {
     ]);
 });
 
+//single listing
+
+Route::get('/listings/{id}', function($id) {
+    return view('listing', [
+        'listing' => Listing::find($id)
+    ]);
+});
